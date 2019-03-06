@@ -12,9 +12,13 @@
 		4995145F222F88B500A72FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4995145D222F88B500A72FAE /* Main.storyboard */; };
 		49951461222F88B800A72FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49951460222F88B800A72FAE /* Assets.xcassets */; };
 		49951464222F88B800A72FAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49951462222F88B800A72FAE /* LaunchScreen.storyboard */; };
+		9D4A16E5EF90CDC8427B05C4 /* Pods_movie_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1768AF37C6D909A01E1D6A12 /* Pods_movie_challenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0736A06B2FB0AA4F36E3C7E3 /* Pods-movie_challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_challenge.debug.xcconfig"; path = "Target Support Files/Pods-movie_challenge/Pods-movie_challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		1768AF37C6D909A01E1D6A12 /* Pods_movie_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movie_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4112B92272F2D0782A0ACDC2 /* Pods-movie_challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_challenge.release.xcconfig"; path = "Target Support Files/Pods-movie_challenge/Pods-movie_challenge.release.xcconfig"; sourceTree = "<group>"; };
 		49951456222F88B500A72FAE /* movie_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49951459222F88B500A72FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4995145B222F88B500A72FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4A16E5EF90CDC8427B05C4 /* Pods_movie_challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				49951458222F88B500A72FAE /* movie_challenge */,
 				49951457222F88B500A72FAE /* Products */,
+				97199720F832F27A464BCE28 /* Pods */,
+				F6EE06BD91E4565C1B0C1E5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = movie_challenge;
 			sourceTree = "<group>";
 		};
+		97199720F832F27A464BCE28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0736A06B2FB0AA4F36E3C7E3 /* Pods-movie_challenge.debug.xcconfig */,
+				4112B92272F2D0782A0ACDC2 /* Pods-movie_challenge.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F6EE06BD91E4565C1B0C1E5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1768AF37C6D909A01E1D6A12 /* Pods_movie_challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49951468222F88B800A72FAE /* Build configuration list for PBXNativeTarget "movie_challenge" */;
 			buildPhases = (
+				C37AB0D2E186ABE34536A6E4 /* [CP] Check Pods Manifest.lock */,
 				49951452222F88B500A72FAE /* Sources */,
 				49951453222F88B500A72FAE /* Frameworks */,
 				49951454222F88B500A72FAE /* Resources */,
+				64E9C9BBEB0F7C796FE6E4A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,59 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64E9C9BBEB0F7C796FE6E4A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-movie_challenge/Pods-movie_challenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movie_challenge/Pods-movie_challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C37AB0D2E186ABE34536A6E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-movie_challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49951452222F88B500A72FAE /* Sources */ = {
@@ -278,6 +358,7 @@
 		};
 		49951469222F88B800A72FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0736A06B2FB0AA4F36E3C7E3 /* Pods-movie_challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +376,7 @@
 		};
 		4995146A222F88B800A72FAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4112B92272F2D0782A0ACDC2 /* Pods-movie_challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
