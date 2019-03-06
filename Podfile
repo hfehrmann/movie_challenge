@@ -6,5 +6,7 @@ target 'movie_challenge' do
   use_frameworks!
 
   # Pods for movie_challenge
+  pod 'RxSwift', '4.0'
+  pod 'Moya/RxSwift', '12.0'
 
 end
