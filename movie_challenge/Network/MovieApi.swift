@@ -12,5 +12,5 @@ import RxSwift
 protocol MovieApi {
     func getTopRatedMovies() -> Single<[Movie]>
     func getPopularMovies() -> Single<[Movie]>
-    func getImageData(for: Movie) -> Single<Data>
+    func getMovieImage(for: String) -> Single<Data>
 }

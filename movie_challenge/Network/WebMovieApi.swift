@@ -7,48 +7,90 @@
 //
 
 import Foundation
+import RxSwift
 import Moya
 
 private enum MovieMoya {
     case topRated
     case popular
-    case image(Movie)
+    case image(String)
 }
 
 extension MovieMoya: TargetType {
+
+    var headers: [String : String]? {
+        return nil
+    }
+
     var baseURL: URL {
-        
+        let urlString: String
+        switch self {
+        case .image:
+            urlString = Constant.MOVIE_IMAGE_API
+        case .topRated:
+            fallthrough
+        case .popular:
+            urlString = Constant.MOVIE_API
+        }
+        guard let url = URL(string: urlString) else {
+            fatalError("Bad formed url")
+        }
+        return url
     }
 
     var path: String {
-        <#code#>
+        let path: String
+        switch self {
+        case .topRated:
+            path = "top_rated"
+        case .popular:
+            path = "popular"
+        case .image(let urlString):
+            path = urlString
+        }
+        return path
     }
 
-    var method: Method {
-        <#code#>
+    var method: Moya.Method {
+        return .get
     }
 
     var sampleData: Data {
-        <#code#>
+        return Data()
     }
 
     var task: Task {
-        <#code#>
+        let task: Task
+        switch self {
+        case .image:
+            task = .requestPlain
+        case .topRated:
+            fallthrough
+        case .popular:
+            let parameters: [String: Any] = ["api_key": Constant.API_KEY]
+            task = .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        }
+        return task
     }
-
-    var headers: [String : String]? {
-        <#code#>
-    }
-
-
-
 }
 
-class WebMovieApi {
+class WebMovieApi: MovieApi {
 
     private let provider: MoyaProvider<MovieMoya>
 
     init(){
         provider = MoyaProvider<MovieMoya>()
+    }
+
+    func getTopRatedMovies() -> Single<[Movie]> {
+        return provider.rx.request(.topRated).map([Movie].self)
+    }
+
+    func getPopularMovies() -> Single<[Movie]> {
+        return provider.rx.request(.popular).map([Movie].self)
+    }
+
+    func getMovieImage(for: String) -> Single<Data> {
+        return provider.rx.request(.popular).map(Data.self)
     }
 }

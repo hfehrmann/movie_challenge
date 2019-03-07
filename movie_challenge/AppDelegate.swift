@@ -13,9 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let viewModel = MovieListerViewModel()
+        let viewController = MovieListerViewController(viewModel: viewModel)
+
+        window?.rootViewController = MovieListerViewController(viewModel: viewModel)
+        window?.makeKeyAndVisible()
+
         return true
     }
 
