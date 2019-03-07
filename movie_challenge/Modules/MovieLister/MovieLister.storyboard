@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="pO1-bp-XsS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="pO1-bp-XsS" customClass="MovieListerTableCell" customModule="movie_challenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pO1-bp-XsS" id="zHf-id-5Lu">
@@ -53,29 +53,29 @@
                                                     <state key="normal" title="Button"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DU-aP-pK0">
-                                                    <rect key="frame" x="119" y="73" width="31" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="111" y="79" width="24" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" white="0.31844027366863903" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_rate_black" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-sS-hLl">
-                                                    <rect key="frame" x="95" y="70" width="20" height="20"/>
+                                                    <rect key="frame" x="95" y="78" width="12" height="12"/>
                                                     <color key="tintColor" red="0.99211711711711714" green="0.92036553929907139" blue="0.29965710207738577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="e8G-zI-5lf"/>
+                                                        <constraint firstAttribute="height" constant="12" id="e8G-zI-5lf"/>
                                                         <constraint firstAttribute="width" secondItem="zDJ-sS-hLl" secondAttribute="height" multiplier="1:1" id="vZ2-CU-6hK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_black" translatesAutoresizingMaskIntoConstraints="NO" id="p7u-JR-Pya">
-                                                    <rect key="frame" x="95" y="50" width="20" height="20"/>
+                                                    <rect key="frame" x="95" y="66" width="12" height="12"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="YKO-GF-XQ7"/>
+                                                        <constraint firstAttribute="height" constant="12" id="YKO-GF-XQ7"/>
                                                         <constraint firstAttribute="width" secondItem="p7u-JR-Pya" secondAttribute="height" id="gM6-rc-Pdp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b13-TI-BLW">
-                                                    <rect key="frame" x="119" y="53" width="31" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="111" y="67" width="24" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" white="0.3184402737" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -98,6 +98,13 @@
                                                 <constraint firstItem="Zu4-OC-JJW" firstAttribute="top" secondItem="XSz-cN-hJb" secondAttribute="top" id="vkc-AO-TBD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="goToButton" destination="QVi-7V-t9s" id="zFm-w0-5F0"/>
+                                            <outlet property="movieImage" destination="XSz-cN-hJb" id="yvM-tF-0e2"/>
+                                            <outlet property="popularityLabel" destination="b13-TI-BLW" id="hXg-Qb-BIy"/>
+                                            <outlet property="rateLabel" destination="7DU-aP-pK0" id="Mue-Is-LdT"/>
+                                            <outlet property="titleLabel" destination="Zu4-OC-JJW" id="vrL-Ts-8iG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

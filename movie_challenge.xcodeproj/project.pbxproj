@@ -11,6 +11,8 @@
 		49010F082230B6F8006CF024 /* MovieListerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F072230B6F8006CF024 /* MovieListerViewModel.swift */; };
 		49010F0A2230B731006CF024 /* MovieListerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F092230B731006CF024 /* MovieListerViewController.swift */; };
 		49010F0C2230B8C6006CF024 /* MovieLister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49010F0B2230B8C6006CF024 /* MovieLister.storyboard */; };
+		49010F0F2230C1F4006CF024 /* MovieListerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F0E2230C1F4006CF024 /* MovieListerTableCell.swift */; };
+		49010F122230C8A0006CF024 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F112230C8A0006CF024 /* Movie.swift */; };
 		4995145A222F88B500A72FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49951459222F88B500A72FAE /* AppDelegate.swift */; };
 		4995145C222F88B500A72FAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995145B222F88B500A72FAE /* ViewController.swift */; };
 		4995145F222F88B500A72FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4995145D222F88B500A72FAE /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		49010F072230B6F8006CF024 /* MovieListerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListerViewModel.swift; sourceTree = "<group>"; };
 		49010F092230B731006CF024 /* MovieListerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListerViewController.swift; sourceTree = "<group>"; };
 		49010F0B2230B8C6006CF024 /* MovieLister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieLister.storyboard; sourceTree = "<group>"; };
+		49010F0E2230C1F4006CF024 /* MovieListerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListerTableCell.swift; sourceTree = "<group>"; };
+		49010F112230C8A0006CF024 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		49951456222F88B500A72FAE /* movie_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49951459222F88B500A72FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4995145B222F88B500A72FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,11 +71,28 @@
 		49010F062230B6D3006CF024 /* MovieLister */ = {
 			isa = PBXGroup;
 			children = (
+				49010F0D2230C1D9006CF024 /* TableCells */,
 				49010F072230B6F8006CF024 /* MovieListerViewModel.swift */,
 				49010F092230B731006CF024 /* MovieListerViewController.swift */,
 				49010F0B2230B8C6006CF024 /* MovieLister.storyboard */,
 			);
 			path = MovieLister;
+			sourceTree = "<group>";
+		};
+		49010F0D2230C1D9006CF024 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				49010F0E2230C1F4006CF024 /* MovieListerTableCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		49010F102230C889006CF024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49010F112230C8A0006CF024 /* Movie.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4995144D222F88B500A72FAE = {
@@ -95,6 +116,7 @@
 		49951458222F88B500A72FAE /* movie_challenge */ = {
 			isa = PBXGroup;
 			children = (
+				49010F102230C889006CF024 /* Models */,
 				49010F052230B6C9006CF024 /* Modules */,
 				49010F022230B5F3006CF024 /* Utils */,
 				49951459222F88B500A72FAE /* AppDelegate.swift */,
@@ -243,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49010F122230C8A0006CF024 /* Movie.swift in Sources */,
+				49010F0F2230C1F4006CF024 /* MovieListerTableCell.swift in Sources */,
 				49010F082230B6F8006CF024 /* MovieListerViewModel.swift in Sources */,
 				4995145C222F88B500A72FAE /* ViewController.swift in Sources */,
 				4995145A222F88B500A72FAE /* AppDelegate.swift in Sources */,

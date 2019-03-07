@@ -8,9 +8,23 @@
 
 import UIKit
 
-class MivieListerViewController: UIViewController {
+class MovieListerViewController: UIViewController {
     
+    private var viewModel: MovieListerViewModel!
+
     override func viewDidLoad() {
         
     }
+}
+
+extension MovieListerViewController {
+    
+    static func instantiate(viewModel: MovieListerViewModel) -> MovieListerViewController {
+        let storyboard = UIStoryboard(name: "MovieLister", bundle: nil)
+        let standardViewController = storyboard.instantiateInitialViewController()
+        let viewController = standardViewController as! MovieListerViewController
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
 }
