@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49010F042230B640006CF024 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F032230B640006CF024 /* Constants.swift */; };
+		49010F082230B6F8006CF024 /* MovieListerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F072230B6F8006CF024 /* MovieListerViewModel.swift */; };
+		49010F0A2230B731006CF024 /* MovieListerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F092230B731006CF024 /* MovieListerViewController.swift */; };
 		4995145A222F88B500A72FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49951459222F88B500A72FAE /* AppDelegate.swift */; };
 		4995145C222F88B500A72FAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995145B222F88B500A72FAE /* ViewController.swift */; };
 		4995145F222F88B500A72FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4995145D222F88B500A72FAE /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 		0736A06B2FB0AA4F36E3C7E3 /* Pods-movie_challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_challenge.debug.xcconfig"; path = "Target Support Files/Pods-movie_challenge/Pods-movie_challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		1768AF37C6D909A01E1D6A12 /* Pods_movie_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movie_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4112B92272F2D0782A0ACDC2 /* Pods-movie_challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_challenge.release.xcconfig"; path = "Target Support Files/Pods-movie_challenge/Pods-movie_challenge.release.xcconfig"; sourceTree = "<group>"; };
+		49010F032230B640006CF024 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		49010F072230B6F8006CF024 /* MovieListerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListerViewModel.swift; sourceTree = "<group>"; };
+		49010F092230B731006CF024 /* MovieListerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListerViewController.swift; sourceTree = "<group>"; };
 		49951456222F88B500A72FAE /* movie_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49951459222F88B500A72FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4995145B222F88B500A72FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +46,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49010F022230B5F3006CF024 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				49010F032230B640006CF024 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		49010F052230B6C9006CF024 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				49010F062230B6D3006CF024 /* MovieLister */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		49010F062230B6D3006CF024 /* MovieLister */ = {
+			isa = PBXGroup;
+			children = (
+				49010F072230B6F8006CF024 /* MovieListerViewModel.swift */,
+				49010F092230B731006CF024 /* MovieListerViewController.swift */,
+			);
+			path = MovieLister;
+			sourceTree = "<group>";
+		};
 		4995144D222F88B500A72FAE = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +92,8 @@
 		49951458222F88B500A72FAE /* movie_challenge */ = {
 			isa = PBXGroup;
 			children = (
+				49010F052230B6C9006CF024 /* Modules */,
+				49010F022230B5F3006CF024 /* Utils */,
 				49951459222F88B500A72FAE /* AppDelegate.swift */,
 				4995145B222F88B500A72FAE /* ViewController.swift */,
 				4995145D222F88B500A72FAE /* Main.storyboard */,
@@ -77,7 +110,6 @@
 				0736A06B2FB0AA4F36E3C7E3 /* Pods-movie_challenge.debug.xcconfig */,
 				4112B92272F2D0782A0ACDC2 /* Pods-movie_challenge.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -163,8 +195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-movie_challenge/Pods-movie_challenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -173,8 +203,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -191,15 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-movie_challenge-checkManifestLockResult.txt",
 			);
@@ -215,8 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49010F082230B6F8006CF024 /* MovieListerViewModel.swift in Sources */,
 				4995145C222F88B500A72FAE /* ViewController.swift in Sources */,
 				4995145A222F88B500A72FAE /* AppDelegate.swift in Sources */,
+				49010F0A2230B731006CF024 /* MovieListerViewController.swift in Sources */,
+				49010F042230B640006CF024 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
