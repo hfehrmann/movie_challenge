@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol MovieListerTableCellDelegate {
+    func movieDetail(detailViewModel: MovieDetailViewModel)
+}
+
 class MovieListerTableCell: UITableViewCell {
 
     @IBOutlet weak var movieTitle: UILabel!
@@ -23,15 +27,17 @@ class MovieListerTableCell: UITableViewCell {
 
     @IBOutlet weak var goButton: UIButton!
 
+    var delegate: MovieListerTableCellDelegate!
     private var viewModel: MovieListerTableCellViewModel!
     private var disposableBag = DisposeBag()
 
     override func awakeFromNib() {
-        popularityImage.tintColor = .gray
-        ratingImage.tintColor = .yellow
+        popularityImage.tintColor = .popularity
+        ratingImage.tintColor = .rating
         goButton.setTitle(HFString.MovieLister.GoButton, for: .normal)
         movieImage.backgroundColor = .gray
         movieImage.layer.cornerRadius = 8
+        goButton.addTarget(self, action: #selector(showDetails), for: .touchUpInside)
     }
 
     override func prepareForReuse() {
@@ -61,6 +67,9 @@ class MovieListerTableCell: UITableViewCell {
             .disposed(by: self.disposableBag)
     }
 
-
+    @objc private func showDetails() {
+        let viewModel = self.viewModel.createDetailViewModel()
+        delegate?.movieDetail(detailViewModel: viewModel)
+    }
 
 }

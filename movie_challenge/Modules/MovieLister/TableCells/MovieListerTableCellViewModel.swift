@@ -14,6 +14,8 @@ protocol MovieListerTableCellViewModel {
     var rating: Observable<Float> { get }
     var popularity: Observable<Float> { get }
     var imageData: Observable<Data> { get }
+
+    func createDetailViewModel() -> MovieDetailViewModel
 }
 
 struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
@@ -21,6 +23,10 @@ struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
     let rating: Observable<Float>
     let popularity: Observable<Float>
     let imageData: Observable<Data>
+
+    private let movie: Movie
+    private let apiService: ApiService
+    private let cacheManager: CacheManager
 
     init(movie: Movie, apiService: ApiService, cacheManager: CacheManager ) {
         self.title = Single.just(movie.title).asObservable()
@@ -41,6 +47,12 @@ struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
             dataImage = Observable.just(Data())
         }
         imageData = dataImage
+        self.movie = movie
+        self.apiService = apiService
+        self.cacheManager = cacheManager
+    }
 
+    func createDetailViewModel() -> MovieDetailViewModel {
+        return DefaultMovieDetailViewModel(movie: movie, apiService: apiService, cacheManager: cacheManager)
     }
 }

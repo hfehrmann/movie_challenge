@@ -58,8 +58,9 @@ class MovieListerViewController: UIViewController {
 
         viewModel.cellViewModel
             .bind(to: self.tableView.rx.items(cellIdentifier: "MovieLister",
-                                              cellType: MovieListerTableCell.self)) { index, model, cell in
+                                              cellType: MovieListerTableCell.self)) { [unowned self] index, model, cell in
                     cell.setBinding(viewModel: model)
+                    cell.delegate = self
             }
             .disposed(by: self.disposableBag)
 
@@ -67,4 +68,13 @@ class MovieListerViewController: UIViewController {
             .bind(to: viewModel.segmentIndex)
             .disposed(by: self.disposableBag)
     }
+}
+
+extension MovieListerViewController: MovieListerTableCellDelegate {
+
+    func movieDetail(detailViewModel: MovieDetailViewModel) {
+        let viewController = MovieDetailViewController(viewModel: detailViewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }
