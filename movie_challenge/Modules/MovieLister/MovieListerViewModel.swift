@@ -48,7 +48,7 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
                 return result.asObservable()
             }).map({ movies in
                 isLoading.onNext(false)
-                return movies.map({ DefaultMovieListerTableCellViewModel(movie: $0) })
+                return movies.map({ DefaultMovieListerTableCellViewModel(movie: $0, apiService: apiService) })
             })
 
         self.isLoading = isLoading

@@ -34,7 +34,7 @@
                             </segments>
                         </segmentedControl>
                     </subviews>
-                    <color key="backgroundColor" white="0.85851978549999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.95279325128675585" green="0.95279325128675585" blue="0.95279325128675585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="FxP-Jt-x9D" firstAttribute="leading" secondItem="ZSI-0F-2ne" secondAttribute="leading" constant="10" id="2cF-mJ-gBe"/>
                         <constraint firstItem="FxP-Jt-x9D" firstAttribute="top" secondItem="ZSI-0F-2ne" secondAttribute="top" constant="8" id="Huj-Ii-SUK"/>

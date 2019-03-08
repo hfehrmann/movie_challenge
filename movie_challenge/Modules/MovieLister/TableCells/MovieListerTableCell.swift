@@ -30,6 +30,8 @@ class MovieListerTableCell: UITableViewCell {
         popularityImage.tintColor = .gray
         ratingImage.tintColor = .yellow
         goButton.setTitle(HFString.MovieLister.GoButton, for: .normal)
+        movieImage.backgroundColor = .gray
+        movieImage.layer.cornerRadius = 8
     }
 
     override func prepareForReuse() {
@@ -50,6 +52,12 @@ class MovieListerTableCell: UITableViewCell {
         viewModel.popularity
             .map({ String(format: "%.2f", $0) })
             .bind(to: popularityLabel.rx.text)
+            .disposed(by: self.disposableBag)
+
+        viewModel
+            .imageData
+            .map({ UIImage(data: $0) })
+            .bind(to: movieImage.rx.image)
             .disposed(by: self.disposableBag)
     }
 

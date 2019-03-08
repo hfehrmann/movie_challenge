@@ -118,6 +118,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		49010F2222322BEA006CF024 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		4995144D222F88B500A72FAE = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 		49951458222F88B500A72FAE /* movie_challenge */ = {
 			isa = PBXGroup;
 			children = (
+				49010F2222322BEA006CF024 /* Storage */,
 				49010F172230D967006CF024 /* Network */,
 				49010F102230C889006CF024 /* Models */,
 				49010F052230B6C9006CF024 /* Modules */,

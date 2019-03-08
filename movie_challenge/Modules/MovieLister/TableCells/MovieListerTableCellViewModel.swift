@@ -22,10 +22,18 @@ struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
     let popularity: Observable<Float>
     let imageData: Observable<Data>
 
-    init(movie: Movie) {
+    init(movie: Movie, apiService: MovieApi, cacheService: ) {
         self.title = Single.just(movie.title).asObservable()
         self.rating = Single.just(movie.rating).asObservable()
         self.popularity = Single.just(movie.popularity).asObservable()
-        self.imageData = Observable.just(Data())
+
+        let dataImage: Observable<Data>
+        if let backdropPath = movie.backdropPath{
+            dataImage = apiService.getMovieImage(for: backdropPath).asObservable()
+        } else {
+            dataImage = Observable.just(Data())
+        }
+        imageData = dataImage
+
     }
 }

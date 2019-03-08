@@ -95,7 +95,7 @@ class WebMovieApi: MovieApi {
             .map({ $0.results })
     }
 
-    func getMovieImage(for: String) -> Single<Data> {
-        return provider.rx.request(.popular).map(Data.self)
+    func getMovieImage(for path: String) -> Single<Data> {
+        return provider.rx.request(.image(path)).map({ $0.data })
     }
 }
