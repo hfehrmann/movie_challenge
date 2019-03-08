@@ -22,7 +22,7 @@ struct Movie: Codable {
         case title
         case overview
         case rating = "vote_average"
-        case popularity = "popularit"
+        case popularity = "popularity"
         case releaseDate = "release_date"
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"

@@ -83,11 +83,16 @@ class WebMovieApi: MovieApi {
     }
 
     func getTopRatedMovies() -> Single<[Movie]> {
-        return provider.rx.request(.topRated).map([Movie].self)
+        return provider.rx.request(.topRated)
+            .map(ApiResponse<Movie>.self)
+            .map({ $0.results })
     }
+    
 
     func getPopularMovies() -> Single<[Movie]> {
-        return provider.rx.request(.popular).map([Movie].self)
+        return provider.rx.request(.popular)
+            .map(ApiResponse<Movie>.self)
+            .map({ $0.results })
     }
 
     func getMovieImage(for: String) -> Single<Data> {

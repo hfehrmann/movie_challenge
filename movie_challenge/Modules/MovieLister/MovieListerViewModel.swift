@@ -23,19 +23,35 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
     var isLoading: Observable<Bool>
     var cellViewModel: Observable<[MovieListerTableCellViewModel]>
 
-    var segmentIndex: AnyObserver<Int>
+    var segmentIndex: AnyObserver<Int> {
+        get{ return self.publishSegmentIndex.asObserver() }
+    }
 
-    init() {
+    private let publishSegmentIndex: PublishSubject<Int>
+
+    init(apiService: MovieApi) {
         let MovieLister = HFString.MovieLister.self
         let singleTitle = Single.just((MovieLister.FirstSegment, MovieLister.SecondSegment))
         self.segmentTitle = singleTitle.asObservable()
 
-        let isLoading = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-            .map({ $0 % 2 == 0 })
-
-        self.segmentIndex = PublishSubject().asObserver()
-        self.cellViewModel = PublishSubject()
+        let isLoading = BehaviorSubject<Bool>(value: false)
+        self.publishSegmentIndex = PublishSubject()
+        self.cellViewModel = self.publishSegmentIndex
+            .flatMapLatest({ index -> Observable<[Movie]> in
+                isLoading.onNext(true)
+                let result: Single<[Movie]>
+                if index == 0 {
+                    result = apiService.getTopRatedMovies()
+                } else {
+                    result = apiService.getPopularMovies()
+                }
+                return result.asObservable()
+            }).map({ movies in
+                isLoading.onNext(false)
+                return movies.map({ DefaultMovieListerTableCellViewModel(movie: $0) })
+            })
 
         self.isLoading = isLoading
+
     }
 }

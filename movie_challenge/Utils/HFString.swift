@@ -12,5 +12,6 @@ struct HFString {
     struct MovieLister {
         static let FirstSegment = "Top Rated"
         static let SecondSegment = "Popular"
+        static let GoButton = "Detalles"
     }
 }

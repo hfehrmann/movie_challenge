@@ -36,6 +36,8 @@ class MovieListerViewController: UIViewController {
         self.tableView.tableHeaderView = nil
         self.tableView.tableFooterView = nil
         self.loading.hidesWhenStopped = true
+        let nib = UINib(nibName: "MovieListerCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "MovieLister")
     }
 
     private func setupBindings() {
@@ -49,6 +51,17 @@ class MovieListerViewController: UIViewController {
 
         viewModel.isLoading
             .bind(to: self.loading.rx.isAnimating)
+            .disposed(by: self.disposableBag)
+
+        viewModel.cellViewModel
+            .bind(to: self.tableView.rx.items(cellIdentifier: "MovieLister",
+                                              cellType: MovieListerTableCell.self)) { index, model, cell in
+                    cell.setBinding(viewModel: model)
+            }
+            .disposed(by: self.disposableBag)
+
+        segment.rx.selectedSegmentIndex
+            .bind(to: viewModel.segmentIndex)
             .disposed(by: self.disposableBag)
     }
 }

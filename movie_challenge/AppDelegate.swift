@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let viewModel = DefaultMovieListerViewModel()
+        let viewModel = DefaultMovieListerViewModel(apiService: WebMovieApi())
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MovieListerViewController(viewModel: viewModel)
         window?.makeKeyAndVisible()
