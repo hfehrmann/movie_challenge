@@ -9,6 +9,13 @@
 import Foundation
 import RxSwift
 
-struct MovieListerViewModel {
+protocol MovieListerViewModel {
+    var segmentTitle: Observable<(String, String)> { get }
+    var isLoading: Observable<Bool> { get }
+    var cellViewModel: Observable<[MovieListerTableCellViewModel]> { get }
+    var segmentIndex: AnyObserver<Int> { get }
+}
+
+struct DefaultMovieListerViewModel: MovieListerViewModel {
     
 }

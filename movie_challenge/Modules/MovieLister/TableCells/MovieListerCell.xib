@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="69" id="9V3-ua-Ger">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="69" id="9V3-ua-Ger" customClass="MovieListerTableCell" customModule="movie_challenge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9V3-ua-Ger" id="Ul8-MY-ZEw">
@@ -90,6 +90,13 @@
                     <constraint firstItem="uPF-fy-QRC" firstAttribute="centerY" secondItem="xqT-on-P75" secondAttribute="centerY" id="ww3-7e-nIq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="goButton" destination="0tK-mJ-R1Y" id="dSb-Cs-FN7"/>
+                <outlet property="movieImage" destination="xvl-e3-bWB" id="fH5-AS-GqM"/>
+                <outlet property="movieTitle" destination="dWH-Se-W1G" id="dih-El-P45"/>
+                <outlet property="popularityLabel" destination="K9H-xI-6Ub" id="ZF9-Dl-J9E"/>
+                <outlet property="ratingLabel" destination="uPF-fy-QRC" id="Bh2-1e-wtB"/>
+            </connections>
             <point key="canvasLocation" x="8.5" y="25"/>
         </tableViewCell>
     </objects>

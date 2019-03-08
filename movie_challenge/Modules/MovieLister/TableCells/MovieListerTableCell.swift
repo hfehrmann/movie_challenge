@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import RxSwift
 
 class MovieListerTableCell: UITableViewCell {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
+
+    @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
-    
+
     @IBOutlet weak var popularityLabel: UILabel!
-    @IBOutlet weak var rateLabel: UILabel!
-    
-    @IBOutlet weak var goToButton: UIButton!
-    
-    
-    
-    
+    @IBOutlet weak var ratingLabel: UILabel!
+
+    @IBOutlet weak var goButton: UIButton!
+
+    private var viewModel: MovieListerTableCellViewModel!
+    private var disposableBag = DisposeBag()
+
+    override func prepareForReuse() {
+        disposableBag = DisposeBag()
+    }
+
+    func setBinding(viewModel: MovieListerTableCellViewModel) {
+        self.viewModel = viewModel
+        
+    }
+
+
+
 }
