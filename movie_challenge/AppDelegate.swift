@@ -15,11 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        let viewModel = DefaultMovieListerViewModel()
         window = UIWindow(frame: UIScreen.main.bounds)
-
-        let viewModel = MovieListerViewModel()
-        let viewController = MovieListerViewController(viewModel: viewModel)
-
         window?.rootViewController = MovieListerViewController(viewModel: viewModel)
         window?.makeKeyAndVisible()
 

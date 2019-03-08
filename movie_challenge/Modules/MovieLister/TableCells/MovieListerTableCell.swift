@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class MovieListerTableCell: UITableViewCell {
 
@@ -28,6 +29,10 @@ class MovieListerTableCell: UITableViewCell {
 
     func setBinding(viewModel: MovieListerTableCellViewModel) {
         self.viewModel = viewModel
+        viewModel.title
+            .bind(to: movieTitle.rx.text)
+            .disposed(by: self.disposableBag)
+
         
     }
 

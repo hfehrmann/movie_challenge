@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class MovieListerViewController: UIViewController {
     
+    @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
+
+    private var disposableBag = DisposeBag()
     private var viewModel: MovieListerViewModel!
 
     init(viewModel: MovieListerViewModel) {
@@ -22,18 +27,22 @@ class MovieListerViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        
+        setupUI()
+        setupBindings()
     }
-}
 
-extension MovieListerViewController {
-    
-    static func instantiate(viewModel: MovieListerViewModel) -> MovieListerViewController {
-        let storyboard = UIStoryboard(name: "MovieLister", bundle: nil)
-        let standardViewController = storyboard.instantiateInitialViewController()
-        let viewController = standardViewController as! MovieListerViewController
-        viewController.viewModel = viewModel
-        return viewController
+    private func setupUI() {
+        self.tableView.tableHeaderView = nil
+        self.tableView.tableFooterView = nil
     }
-    
+
+    private func setupBindings() {
+        let defaultSegmentIndex = 0
+        segment.removeAllSegments()
+        viewModel.segmentTitle.bind(onNext: {[unowned self] (first, second) in
+            self.segment.insertSegment(withTitle: first, at: 0, animated: false)
+            self.segment.insertSegment(withTitle: second, at: 1, animated: false)
+            self.segment.selectedSegmentIndex = defaultSegmentIndex
+        }).disposed(by: self.disposableBag)
+    }
 }
