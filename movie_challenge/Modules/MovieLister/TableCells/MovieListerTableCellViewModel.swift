@@ -28,8 +28,15 @@ struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
         self.popularity = Single.just(movie.popularity).asObservable()
 
         let dataImage: Observable<Data>
-        if let backdropPath = movie.backdropPath{
-            dataImage = apiService.getMovieImage(for: backdropPath).asObservable()
+        if let backdropPath = movie.backdropPath {
+            if let data = cacheManager.getData(forKey: backdropPath) {
+                dataImage = Observable.just(data)
+            } else {
+                dataImage = apiService
+                    .getMovieImage(for: backdropPath)
+                    .asObservable()
+                    .do(onNext: { cacheManager.setData(forKey: backdropPath, data: $0)})
+            }
         } else {
             dataImage = Observable.just(Data())
         }

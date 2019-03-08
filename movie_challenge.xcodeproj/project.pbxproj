@@ -19,6 +19,7 @@
 		49010F1F2232085C006CF024 /* HFString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F1E2232085C006CF024 /* HFString.swift */; };
 		49010F2122321AD9006CF024 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F2022321AD9006CF024 /* ApiResponse.swift */; };
 		49010F2422322C6D006CF024 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49010F2322322C6D006CF024 /* CacheManager.swift */; };
+		49010F27223231AC006CF024 /* MovieDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49010F26223231AC006CF024 /* MovieDetail.xib */; };
 		4995145A222F88B500A72FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49951459222F88B500A72FAE /* AppDelegate.swift */; };
 		4995145F222F88B500A72FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4995145D222F88B500A72FAE /* Main.storyboard */; };
 		49951461222F88B800A72FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49951460222F88B800A72FAE /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		49010F1E2232085C006CF024 /* HFString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFString.swift; sourceTree = "<group>"; };
 		49010F2022321AD9006CF024 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		49010F2322322C6D006CF024 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		49010F26223231AC006CF024 /* MovieDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetail.xib; sourceTree = "<group>"; };
 		49951456222F88B500A72FAE /* movie_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49951459222F88B500A72FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4995145E222F88B500A72FAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		49010F052230B6C9006CF024 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49010F2522323194006CF024 /* MovieDetail */,
 				49010F062230B6D3006CF024 /* MovieLister */,
 			);
 			path = Modules;
@@ -123,6 +126,14 @@
 				49010F2322322C6D006CF024 /* CacheManager.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		49010F2522323194006CF024 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				49010F26223231AC006CF024 /* MovieDetail.xib */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		4995144D222F88B500A72FAE = {
@@ -238,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49010F142230D5B7006CF024 /* MovieLister.xib in Resources */,
+				49010F27223231AC006CF024 /* MovieDetail.xib in Resources */,
 				49951464222F88B800A72FAE /* LaunchScreen.storyboard in Resources */,
 				49951461222F88B800A72FAE /* Assets.xcassets in Resources */,
 				4995145F222F88B500A72FAE /* Main.storyboard in Resources */,
