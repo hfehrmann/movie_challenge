@@ -11,7 +11,7 @@ import RxSwift
 
 class MovieListerViewController: UIViewController {
     
-    @IBOutlet weak var segment: UISegmentedControl!
+    weak var segment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
@@ -38,6 +38,9 @@ class MovieListerViewController: UIViewController {
         self.loading.hidesWhenStopped = true
         let nib = UINib(nibName: "MovieListerCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "MovieLister")
+        let segment = UISegmentedControl()
+        self.navigationItem.titleView = segment
+        self.segment = segment
     }
 
     private func setupBindings() {

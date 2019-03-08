@@ -24,6 +24,7 @@ class InMemoryCacheManager: CacheManager {
         self.maxCacheNumber = maxCacheNumber
         self.currentCacheNumber = 0
         self.cacheMapper = [:]
+        self.savedKeys = []
     }
 
     func getData(forKey: String) -> Data? {
