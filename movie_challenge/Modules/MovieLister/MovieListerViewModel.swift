@@ -29,7 +29,7 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
 
     private let publishSegmentIndex: PublishSubject<Int>
 
-    init(apiService: ApiService) {
+    init(apiService: ApiService, cacheManager: CacheManager) {
         let MovieLister = HFString.MovieLister.self
         let singleTitle = Single.just((MovieLister.FirstSegment, MovieLister.SecondSegment))
         self.segmentTitle = singleTitle.asObservable()
@@ -48,7 +48,15 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
                 return result.asObservable()
             }).map({ movies in
                 isLoading.onNext(false)
-                return movies.map({ DefaultMovieListerTableCellViewModel(movie: $0, apiService: apiService) })
+                return movies
+                    .map({ movie in
+                        let viewModel = DefaultMovieListerTableCellViewModel(
+                            movie: movie,
+                            apiService: apiService,
+                            cacheManager: cacheManager
+                        )
+                        return viewModel
+                    })
             })
 
         self.isLoading = isLoading
