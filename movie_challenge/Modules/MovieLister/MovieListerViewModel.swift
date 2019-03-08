@@ -29,7 +29,7 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
 
     private let publishSegmentIndex: PublishSubject<Int>
 
-    init(apiService: MovieApi) {
+    init(apiService: ApiService) {
         let MovieLister = HFString.MovieLister.self
         let singleTitle = Single.just((MovieLister.FirstSegment, MovieLister.SecondSegment))
         self.segmentTitle = singleTitle.asObservable()

@@ -74,7 +74,13 @@ extension MovieMoya: TargetType {
     }
 }
 
-class WebMovieApi: MovieApi {
+protocol ApiService {
+    func getTopRatedMovies() -> Single<[Movie]>
+    func getPopularMovies() -> Single<[Movie]>
+    func getMovieImage(for: String) -> Single<Data>
+}
+
+class WebApiService: ApiService {
 
     private let provider: MoyaProvider<MovieMoya>
 

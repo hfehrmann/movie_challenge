@@ -22,7 +22,7 @@ struct DefaultMovieListerTableCellViewModel: MovieListerTableCellViewModel {
     let popularity: Observable<Float>
     let imageData: Observable<Data>
 
-    init(movie: Movie, apiService: MovieApi, cacheService: ) {
+    init(movie: Movie, apiService: ApiService, cacheService: ) {
         self.title = Single.just(movie.title).asObservable()
         self.rating = Single.just(movie.rating).asObservable()
         self.popularity = Single.just(movie.popularity).asObservable()
