@@ -30,7 +30,8 @@ struct DefaultMovieListerViewModel: MovieListerViewModel {
         let singleTitle = Single.just((MovieLister.FirstSegment, MovieLister.SecondSegment))
         self.segmentTitle = singleTitle.asObservable()
 
-        let isLoading = BehaviorSubject(value: false)
+        let isLoading = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+            .map({ $0 % 2 == 0 })
 
         self.segmentIndex = PublishSubject().asObserver()
         self.cellViewModel = PublishSubject()

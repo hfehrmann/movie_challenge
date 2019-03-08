@@ -13,7 +13,8 @@ class MovieListerViewController: UIViewController {
     
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     private var disposableBag = DisposeBag()
     private var viewModel: MovieListerViewModel!
 
@@ -34,6 +35,7 @@ class MovieListerViewController: UIViewController {
     private func setupUI() {
         self.tableView.tableHeaderView = nil
         self.tableView.tableFooterView = nil
+        self.loading.hidesWhenStopped = true
     }
 
     private func setupBindings() {
@@ -44,5 +46,9 @@ class MovieListerViewController: UIViewController {
             self.segment.insertSegment(withTitle: second, at: 1, animated: false)
             self.segment.selectedSegmentIndex = defaultSegmentIndex
         }).disposed(by: self.disposableBag)
+
+        viewModel.isLoading
+            .bind(to: self.loading.rx.isAnimating)
+            .disposed(by: self.disposableBag)
     }
 }
